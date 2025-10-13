@@ -1,0 +1,21 @@
+:host {
+    .character-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .character-card img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 4px;
+    }
+    
+    .character-card h3 {
+      color: #333;
+      margin: 10px 0;
+    }
+}
