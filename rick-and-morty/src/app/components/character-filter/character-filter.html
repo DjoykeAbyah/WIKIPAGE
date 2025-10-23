@@ -1,10 +1,20 @@
-<p>character-filter works!</p>
-<!-- <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:w-auto relative z-10">
-  <input ... id="name-filter" placeholder="Filter by name..." type="text" (input)="onNameChange($event)">
-  <select ... id="gender-filter" (change)="onGenderChange($event)">
+<div class="filter-bar">
+  <input class="input-glitch border border-gray-300 rounded px-4 py-2 text-sm focus:ring-primary focus:border-primary transition" id="name-filter" placeholder="Name" type="text"/>
+  <select class="input-glitch border border-gray-300 rounded px-4 py-2 text-sm focus:ring-primary focus:border-primary transition" id="gender-filter">
+    <option value="">Gender</option>
+    <option value="female">Female</option>
+    <option value="male">Male</option>
+    <option value="genderless">Genderless</option>
+    <option value="unknown">Unknown</option>
   </select>
-  <select ... id="species-filter" (change)="onSpeciesChange($event)">
+  <select class="input-glitch border border-gray-300 rounded px-4 py-2 text-sm focus:ring-primary focus:border-primary transition" id="species-filter">
+    <option value="">Species</option>
   </select>
-  <select ... id="status-filter" (change)="onStatusChange($event)">
+  <select class="input-glitch border border-gray-300 rounded px-4 py-2 text-sm focus:ring-primary focus:border-primary transition" id="status-filter">
+    <option value="">Status</option>
+    <option value="alive">Alive</option>
+    <option value="dead">Dead</option>
+    <option value="unknown">Unknown</option>
   </select>
-</div> -->
+  <button class="input-glitch border border-gray-300 rounded px-4 py-2 text-sm focus:ring-primary focus:border-primary transition" id="filter-btn">Filter</button>
+</div>

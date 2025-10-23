@@ -1,0 +1,116 @@
+@keyframes glitch-effect {
+    0% {
+        text-shadow: 2px 2px #ff0000, -2px -2px #0000ff;
+        transform: translate(0, 0);
+    }
+    25% {
+        text-shadow: -2px -2px #ff0000, 2px 2px #0000ff;
+        transform: translate(2px, 2px);
+    }
+    50% {
+        text-shadow: 2px -2px #ff0000, -2px 2px #0000ff;
+        transform: translate(-2px, 2px);
+    }
+    75% {
+        text-shadow: -2px 2px #ff0000, 2px -2px #0000ff;
+        transform: translate(2px, -2px);
+    }
+    100% {
+        text-shadow: 2px 2px #ff0000, -2px -2px #0000ff;
+        transform: translate(0, 0);
+    }
+}
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+    20%, 24%, 55% {
+        opacity: 0.8;
+        filter: brightness(1.2);
+    }
+    21%, 56% {
+        opacity: 0.9;
+        filter: brightness(0.9);
+    }
+}
+@keyframes scanline {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+.glitch-text {
+    animation: glitch-effect 0.8s infinite alternate, flicker 3s infinite;
+}
+
+.vhs-overlay {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: visible;
+}
+
+.vhs-overlay::before {
+    content: '';
+    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 20;background-size: 100% 2px, 3px 100%;
+    animation: scanline 8s linear infinite;
+    pointer-events: none;
+}
+.tracking-error {
+    position: relative;
+    overflow: hidden;
+}
+.tracking-error::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(0, 0, 0, 0.1);
+    filter: blur(2px);
+    transform: skewX(-5deg) skewY(2deg);
+    z-index: 0;
+    pointer-events: none;
+}
+.tracking-error .inner-content {
+    position: relative;
+    z-index: 1;
+}
+.input-glitch {
+    position: relative;
+    overflow: hidden;
+}
+.input-glitch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+.alive { background-color: #55cc44; }
+.dead { background-color: #d63d2e; }
+.unknown-status { background-color: #9e9e9e; }

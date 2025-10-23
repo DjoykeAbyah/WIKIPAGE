@@ -1,0 +1,13 @@
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+#filter-btn {
+  background: #fff;
+  color: #333;
+}
