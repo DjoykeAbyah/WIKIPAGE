@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './character-filter.html',
   styleUrl: './character-filter.css'
 })
-export class CharacterFilter {
+export class CharacterFilterComponent {
 
 }
