@@ -8,9 +8,19 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrl: './character-filter.css'
 })
 export class CharacterFilterComponent {
-  @Output() filterChange = new EventEmitter<{ name: string; status: string }>();
+  @Output() filterChange = new EventEmitter<{ name: string; gender: string; species: string; status: string }>();
 
-  emitFilterChange(name: string, status: string) {
-    this.filterChange.emit({ name, status });
+  name: string = '';
+  gender: string = '';
+  species: string = '';
+  status: string = '';
+
+  emitFilterChange() {
+    this.filterChange.emit({
+      name: this.name || '',
+      gender: this.gender || '',
+      species: this.species || '',
+      status: this.status || ''
+    });
   }
 }

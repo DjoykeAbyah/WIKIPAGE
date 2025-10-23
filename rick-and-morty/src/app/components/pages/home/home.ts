@@ -4,17 +4,23 @@ import { CharacterFilterComponent } from '../../character-filter/character-filte
 import { CharacterCardComponent } from '../../character-card/character-card';
 import { Character } from '../../../models/character.model';
 import { CharacterService } from '../../../services/characterService';
-import { List } from "../list/list";
 
 @Component({
   selector: 'app-home',
-  imports: [CharacterFilterComponent, CharacterCardComponent, CommonModule, List],
+  imports: [CharacterFilterComponent, CharacterCardComponent, CommonModule ],
   standalone: true,
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home implements OnInit {
   characters: Character[] = [];
+  currentPage: number = 1;
+  totalPages: number = 42;
+  filters: { name: string; gender: string; species: string; status: string } = {
+  name: '',
+  gender: '',
+  species: '',
+  status: ''};
 
   get visibleCharacters(): Character[] {
   return this.characters.slice(0, 12);
@@ -28,8 +34,9 @@ export class Home implements OnInit {
     });
   }
 
-  onFilterChange(filter: { name: string; status: string }) {
-    this.characterService.getCharacters().subscribe(response => {
+  onFilterChange(filter: { name: string; gender: string; species: string; status: string }) {
+    this.filters = filter;
+    this.characterService.getCharacters(this.currentPage, this.filters).subscribe(response => {
       this.characters = response.results;
     });
   }

@@ -23,4 +23,8 @@ export class CharacterCardComponent {
   get statusClass(): string {
     return this.character.status.toLowerCase().replace(' ', '-');
   }
+
+  showDetails() {
+  // Add your logic here (e.g., emit an event, navigate, etc.)
+  }
 }
