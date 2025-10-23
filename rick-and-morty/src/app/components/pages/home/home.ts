@@ -16,15 +16,18 @@ export class Home implements OnInit {
   characters: Character[] = [];
   currentPage: number = 1;
   totalPages: number = 42;
-  filters: { name: string; gender: string; species: string; status: string } = {
-  name: '',
-  gender: '',
-  species: '',
-  status: ''};
+  filters: { name: string; gender: string; species: string; status: string; type: string } = {
+    name: '',
+    gender: '',
+    species: '',
+    status: '',
+    type: ''
+  };
 
   get visibleCharacters(): Character[] {
-  return this.characters.slice(0, 12);
+    return this.characters.slice(0, 12);
   }
+
 
   constructor(private characterService: CharacterService) {};
 
@@ -34,11 +37,19 @@ export class Home implements OnInit {
     });
   }
 
-  onFilterChange(filter: { name: string; gender: string; species: string; status: string }) {
-    this.filters = filter;
+  onFilterChange(filter: { name: string; gender: string; species: string; status: string; type?: string }) {
+    this.filters = { ...filter, type: filter.type ?? '' };
     this.characterService.getCharacters(this.currentPage, this.filters).subscribe(response => {
       this.characters = response.results;
     });
   }
 
+  goToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.characterService.getCharacters(this.currentPage, this.filters).subscribe(response => {
+        this.characters = response.results;
+      });
+    }
+  }
 }
