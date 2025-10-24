@@ -1,26 +1,21 @@
-/* :host {
-  .alive { background-color: #55cc44; }
-  .dead { background-color: #d63d2e; }
-  .unknown-status { background-color: #9e9e9e; }
-  
-  .character-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 8px;
-    text-align: center;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  }
+:host {
+    .character-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
     
-  .character-card img {
-    width: 100%;
-    max-width: 200px;
-    border-radius: 4px;
-  }
+    .character-card img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 4px;
+    }
     
-  .character-card h3 {
-    color: #333;
-    margin: 10px 0;
-  }
-
-} */
+    .character-card h3 {
+      color: #333;
+      margin: 10px 0;
+    }
+}

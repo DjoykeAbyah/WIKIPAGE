@@ -20,7 +20,7 @@
         transform: translate(0, 0);
     }
 }
-/* @keyframes flicker {
+@keyframes flicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
         opacity: 1;
         filter: brightness(1);
@@ -33,15 +33,24 @@
         opacity: 0.9;
         filter: brightness(0.9);
     }
-} */
-/* @keyframes scanline {
+}
+
+@keyframes scanline {
     0% {
         background-position: 0 0;
     }
     100% {
         background-position: 0 100%;
     }
-} */
+}
+
+body {
+  background-image: url('/images/portal.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 .glitch-text {
     animation: glitch-effect 0.8s infinite alternate, flicker 3s infinite;

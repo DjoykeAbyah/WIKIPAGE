@@ -1,6 +1,6 @@
-<div class="vhs-overlay" style="min-height: 100vh;">
+<!-- <div class="vhs-overlay" style="min-height: 100vh;"> -->
+<div style="min-height: 100vh;">
   <main class="container mx-auto">
-    <!-- Existing home content -->
     <character-filter (filterChange)="onFilterChange($event)"></character-filter>
     @if (characters) {
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
@@ -16,9 +16,3 @@
   (previousPage)="goToPreviousPage()"
   (nextPage)="goToNextPage()"
 ></pagination>
-
-<!-- <div class="pagination flex items-center space-x-2 mt-4">
-  <span>{{ currentPage }}/{{ totalPages }}</span>
-  <button (click)="goToNextPage()" [disabled]="currentPage >= totalPages"> {{ currentPage }} → </button>
-  <button (click)="goToPreviousPage()" [disabled]="currentPage <= 1"> ← {{ currentPage }} </button>
-</div> -->

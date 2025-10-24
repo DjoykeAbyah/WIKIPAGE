@@ -1,20 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Character } from '../../models/character.model';
-import { CharacterService } from '../../services/characterService';
-
-/**
- * Create @Input() property to receive character data
- * Display character information (name, image, status, species, etc.)
- * Style the card layout
- */
 
 @Component({
   selector: 'character-card',
   imports: [CommonModule],
   standalone: true,
   templateUrl: './character-card.html',
-  styleUrl: './character-card.css'
+  styleUrl: './character-card.css',
+  encapsulation: ViewEncapsulation.None // <-- Add this line
 })
 export class CharacterCardComponent {
 

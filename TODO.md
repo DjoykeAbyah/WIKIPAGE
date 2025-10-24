@@ -1,3 +1,4 @@
+do the vhs overlay just on the character cards !!!!!
 
 
 search component, observable, map pipe, rxjs, filter

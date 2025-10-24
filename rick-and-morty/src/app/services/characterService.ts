@@ -10,10 +10,6 @@ import { Observable } from 'rxjs';
 export class CharacterService {
   
   constructor(private httpClient: HttpClient) { }
-  
-  // getCharacters(): Observable<ApiResponse> {
-  //   return this.httpClient.get<ApiResponse>('https://rickandmortyapi.com/api/character');
-  // }
 
   getCharacters(page: number = 1, filters?: { name?: string; status?: string; species?: string }): Observable<ApiResponse> {
   const params: any = { page, ...filters };
