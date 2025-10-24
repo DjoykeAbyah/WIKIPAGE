@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ApiResponse, Character } from '../models/character.model';
+import { Character } from '../models/character.model';
+import { ApiResponse } from '../models/apiResponse.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
