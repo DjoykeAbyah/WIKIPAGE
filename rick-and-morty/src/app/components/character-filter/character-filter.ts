@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CharacterFilter } from '../../models/character-filter.model';
 
 @Component({
   selector: 'character-filter',
@@ -9,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './character-filter.css'
 })
 export class CharacterFilterComponent {
-  @Output() filterChange = new EventEmitter<{ name: string; gender: string; species: string; type: string; status: string }>();
+  @Output() filterChange = new EventEmitter<CharacterFilter>();
 
   name: string = '';
   status: string = '';

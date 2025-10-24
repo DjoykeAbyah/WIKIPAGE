@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Character } from '../models/character.model';
-import { ApiResponse } from '../models/apiResponse.model';
+import { ApiResponse } from '../models/api-response.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
