@@ -1,11 +1,11 @@
 <div class="flex justify-center items-center mt-8">
-  <div class="pagination flex items-center space-x-4 bg-white bg-opacity-80 rounded-lg shadow-lg px-6 py-3">
+  <div class="flex items-center space-x-4 px-6 py-3">
     <button
       class="pagination-btn"
       (click)="onPrevious()"
       [disabled]="currentPage <= 1"
     >← Prev</button>
-    <span class="text-lg font-semibold text-gray-800">{{ currentPage }} / {{ totalPages }}</span>
+    <span class="pagination-info">{{ currentPage }} / {{ totalPages }}</span>
     <button
       class="pagination-btn"
       (click)="onNext()"
