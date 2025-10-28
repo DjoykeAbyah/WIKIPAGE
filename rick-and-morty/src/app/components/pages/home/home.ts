@@ -67,4 +67,11 @@ export class Home implements OnInit {
       this.goToPage(this.currentPage - 1);
     }
   }
+
+  scrollToCharacters() {
+    const el = document.getElementById('character-cards');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

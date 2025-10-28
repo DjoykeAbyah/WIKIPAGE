@@ -1,0 +1,25 @@
+.find-characters-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.find-characters-btn {
+  border: 2px solid #26abad;
+  padding: 8px 20px;
+  color: #fff;
+  background: rgba(34, 34, 34, 0.8);
+  font-family: 'VT323', monospace;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #7af458;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  transition: all 0.1s;
+  text-transform: uppercase;
+}
+
+.find-characters-btn:hover {
+  background: rgba(79, 79, 79, 0.8);
+  color: #ffffff;
+  box-shadow: -2px -2px 0px #fff67e;
+}
