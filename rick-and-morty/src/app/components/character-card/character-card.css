@@ -27,9 +27,9 @@
   width: auto;
 }
 
-.character-card h3 {
-  background: rgba(34, 34, 34, 0.8);
+.character-card h2 {
   margin: 10px 0;
+  text-align: center;
 }
 
 .status-dot {

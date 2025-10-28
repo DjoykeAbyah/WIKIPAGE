@@ -10,22 +10,22 @@
 
 .filter-input:focus,
 .filter-bar select:focus {
-  box-shadow: -2px -2px 0px #fff;
+  box-shadow: -2px -2px 0px #ffffff;
 }
 
 .filter-btn,
 .filter-input,
 .filter-bar select,
 .clear-btn {
-  border: 2px solid #fff;
+  border: 2px solid #26abad;
   padding: 8px 20px;
   color: #fff;
   background: rgba(34, 34, 34, 0.8);
   font-family: 'VT323', monospace;
   cursor: pointer;
-  box-shadow: 2px 2px 0px #fff;
+  box-shadow: 2px 2px 0px #7af458;
   font-size: 1.2rem;
-  border-radius: 16px; /* Rounded corners */
+  border-radius: 16px;
   transition: all 0.1s;
   text-transform: uppercase;
   margin-top: 8px;
@@ -33,7 +33,8 @@
 
 .filter-btn:hover,
 .clear-btn:hover {
-  background: #fff;
-  color: #000;
-  box-shadow: -2px -2px 0px #fff;
+  /* background: #fff; */
+  background: rgba(79, 79, 79, 0.8);
+  color: #ffffff;
+  box-shadow: -2px -2px 0px #fff67e;
 }

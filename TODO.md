@@ -4,7 +4,8 @@
 4. style character cards info
     * name centered?
     * other info on the side
-
+5. character detail page
+6. check out other font families?
 
 search component, observable, map pipe, rxjs, filter
 add homepage logic

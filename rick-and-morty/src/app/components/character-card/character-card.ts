@@ -1,6 +1,7 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Character } from '../../models/character.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'character-card',
@@ -13,12 +14,14 @@ import { Character } from '../../models/character.model';
 export class CharacterCardComponent {
 
   @Input() character!: Character; // This can receive ANY Character object
+  constructor(private router: Router) {}
 
   get statusClass(): string {
     return this.character.status.toLowerCase().replace(' ', '-');
   }
 
-  showDetails() {
-  // Add your logic here (e.g., emit an event, navigate, etc.)
+  goToDetails(character: Character) {
+    this.router.navigate(['/details', character.id]);
+    console.log('Navigating to details of character:', character);
   }
 }
