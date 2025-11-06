@@ -34,7 +34,6 @@ export class LocationsPage implements OnInit {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
       this.loadLocations();
-      // Scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
