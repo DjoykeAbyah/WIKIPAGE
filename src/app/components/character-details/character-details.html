@@ -1,0 +1,87 @@
+<div class="character-details-bg">
+  @if (loading) {
+    <div class="loading-container">
+      <p class="loading-text">Loading character details...</p>
+    </div>
+  }
+
+  @if (!loading && character) {
+    <div class="character-details-container">
+      <button class="back-button" (click)="goBack()">
+        ← Back to Characters
+      </button>
+
+      <div class="character-details-card">
+        <div class="character-main-info">
+          <img [src]="character.image" [alt]="character.name" class="character-image" />
+          
+          <div class="character-info">
+            <h1 class="character-name">{{ character.name }}</h1>
+            
+            <div class="info-row">
+              <span class="label">Status:</span>
+              <span [class]="'status-badge ' + getStatusClass()">{{ character.status }}</span>
+            </div>
+
+            <div class="info-row">
+              <span class="label">Species:</span>
+              <span class="value">{{ character.species }}</span>
+            </div>
+
+            @if (character.type) {
+              <div class="info-row">
+                <span class="label">Type:</span>
+                <span class="value">{{ character.type }}</span>
+              </div>
+            }
+
+            <div class="info-row">
+              <span class="label">Gender:</span>
+              <span class="value">{{ character.gender }}</span>
+            </div>
+
+            <div class="info-row">
+              <span class="label">Origin:</span>
+              @if (character.origin.url) {
+                <span class="value clickable" (click)="goToOrigin()">{{ character.origin.name }}</span>
+              } @else {
+                <span class="value">{{ character.origin.name }}</span>
+              }
+            </div>
+
+            <div class="info-row">
+              <span class="label">Location:</span>
+              @if (character.location.url) {
+                <span class="value clickable" (click)="goToLocation()">{{ character.location.name }}</span>
+              } @else {
+                <span class="value">{{ character.location.name }}</span>
+              }
+            </div>
+          </div>
+        </div>
+
+        @if (episodes && episodes.length > 0) {
+          <div class="episodes-section">
+            <h2 class="section-title">Episodes ({{ episodes.length }})</h2>
+            <div class="episodes-list">
+              @for (episode of episodes; track episode.id) {
+                <div class="episode-item" (click)="goToEpisode(episode)">
+                  <span class="episode-code">{{ episode.episode }}</span>
+                  <span class="episode-name">{{ episode.name }}</span>
+                  <span class="episode-date">{{ episode.air_date }}</span>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  @if (!loading && !character) {
+    <div class="error-container">
+      <p class="error-text">Character not found</p>
+      <button class="back-button" (click)="goBack()">← Back to Characters</button>
+    </div>
+  }
+</div>

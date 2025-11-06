@@ -1,0 +1,29 @@
+<div style="min-height: 100vh;">
+  <main class="container mx-auto mt-25 mb-50">
+    <div class="typed-block">
+      <h2 class="h2" [innerHTML]="typedTextWithBreaks"></h2>
+    </div>
+    <div class="find-characters-btn-wrapper">
+      <button
+        class="find-characters-btn"
+        (click)="scrollToHomeCharacters()"
+      >
+        Find Characters
+      </button>
+      <button
+        class="find-characters-btn"
+        (click)="goToEpisodes()"
+      >
+        Find Episodes
+      </button>
+      <button
+        class="find-characters-btn"
+        (click)="goToLocations()"
+      >
+        Find Locations
+      </button>
+    </div>
+    <div class="flex justify-center items-center mt-8 space-x-2" id="pagination"></div>
+  </main>
+  <router-outlet></router-outlet>
+</div>

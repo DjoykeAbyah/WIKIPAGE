@@ -1,0 +1,73 @@
+.character-card {
+  background: rgba(34, 34, 34, 0.8);
+  color: #fff;
+  font-family: 'VT323', monospace;
+  padding: 16px;
+  margin: 8px;
+  border-radius: 8px;
+  /* Add pixelated border */
+  border: 4px solid #fff;
+  box-shadow: 4px 4px 0px #fff;
+  /* Optional: pixelated image effect */
+  image-rendering: pixelated;
+}
+
+.character-name {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+.character-details {
+  font-size: 1.2rem;
+}
+
+.character-card img {
+  align-self: center;
+  border-radius: 4px;
+  height: auto;
+  width: auto;
+}
+
+.character-card h2 {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+
+}
+.status-alive {
+  background: #1db954;
+}
+.status-dead {
+  background: #e53935;
+}
+.status-unknown {
+  background: #888;
+}
+
+.pixelated-button {
+  border: 2px solid #fff;
+  background: rgba(34, 34, 34, 0.8);
+  color: #fff;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  padding: 8px 20px;
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 2px 2px 0px #fff;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s, box-shadow 0.1s;
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+
+.pixelated-button:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: -2px -2px 0px #fff;
+}

@@ -1,0 +1,20 @@
+<div class="filter-bar flex space-x-2">
+  <input type="text" placeholder="No name" [(ngModel)]="name" class="filter-input" />
+  <select [(ngModel)]="status" class="filter-input">
+    <option value="">No status</option>
+    <option value="Alive">Alive</option>
+    <option value="Dead">Dead</option>
+    <option value="unknown">Unknown</option>
+  </select>
+  <input type="text" placeholder="No species" [(ngModel)]="species" class="filter-input" />
+  <input type="text" placeholder="No type" [(ngModel)]="type" class="filter-input" />
+  <select [(ngModel)]="gender" class="filter-input">
+    <option value="">No gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Genderless">Genderless</option>
+    <option value="unknown">Unknown</option>
+  </select>
+  <button (click)="emitFilterChange()" class="filter-btn">Filter</button>
+  <button (click)="clearFilters()" class="clear-btn">×</button>
+</div>

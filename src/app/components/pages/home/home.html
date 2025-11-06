@@ -1,0 +1,22 @@
+<main class="container mx-auto min-h-screen pt-8">
+  <character-filter id="filter-bar" (filterChange)="onFilterChange($event)"></character-filter>
+
+  @if (characters) {
+    <div
+      id="character-cards"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-2 gap-6 mt-12"
+    >
+    @for (character of characters | slice:0:8; track character.id) {
+      <character-card [character]="character"></character-card>
+    }
+    </div>
+  }
+
+  <pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (previousPage)="goToPreviousPage()"
+    (nextPage)="goToNextPage()"
+    class="mt-12"
+  ></pagination>
+</main>
