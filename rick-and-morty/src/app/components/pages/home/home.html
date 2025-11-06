@@ -1,90 +1,3 @@
-<!-- <div style="min-height: 100vh;">
-  <main class="container mx-auto">
-    <character-filter (filterChange)="onFilterChange($event)"></character-filter>
-    @if (characters) {
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-2 gap-6">
-      <character-card
-        *ngFor="let character of characters | slice:0:8"
-        [character]="character"
-      ></character-card>
-    </div>
-    }
-  </main>
-</div>
-
-<pagination
-  [currentPage]="currentPage"
-  [totalPages]="totalPages"
-  (previousPage)="goToPreviousPage()"
-  (nextPage)="goToNextPage()"
-></pagination> -->
-
-<!-- <main class="container mx-auto min-h-screen pt-8">
-    <div class="find-characters-btn-wrapper">
-    <button
-      class="find-characters-btn"
-      (click)="scrollToCharacters()"
-    >
-      Find Characters
-    </button>
-  </div>
-
-  <character-filter (filterChange)="onFilterChange($event)"></character-filter>
-
-  @if (characters) {
-    <div
-      id="character-cards"
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-2 gap-6 mt-12"
-    >
-      <character-card
-        *ngFor="let character of characters | slice:0:8"
-        [character]="character"
-      ></character-card>
-    </div>
-  }
-
-  <pagination
-    [currentPage]="currentPage"
-    [totalPages]="totalPages"
-    (previousPage)="goToPreviousPage()"
-    (nextPage)="goToNextPage()"
-    class="mt-12"
-  ></pagination>
-</main> -->
-
-<!-- <main class="container mx-auto min-h-screen pt-8">
-  <div class="find-characters-btn-wrapper">
-    <button
-      class="find-characters-btn"
-      (click)="scrollToCharacters()"
-    >
-      Find Characters
-    </button>
-  </div>
-
-  <character-filter (filterChange)="onFilterChange($event)"></character-filter>
-
-  @if (characters) {
-    <div
-      id="character-cards"
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-2 gap-6 mt-12"
-    >
-      <character-card
-        *ngFor="let character of characters | slice:0:8"
-        [character]="character"
-      ></character-card>
-    </div>
-  }
-
-  <pagination
-    [currentPage]="currentPage"
-    [totalPages]="totalPages"
-    (previousPage)="goToPreviousPage()"
-    (nextPage)="goToNextPage()"
-    class="mt-12"
-  ></pagination>
-</main> -->
-
 <main class="container mx-auto min-h-screen pt-8">
   <character-filter id="filter-bar" (filterChange)="onFilterChange($event)"></character-filter>
 
@@ -93,10 +6,9 @@
       id="character-cards"
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-2 gap-6 mt-12"
     >
-      <character-card
-        *ngFor="let character of characters | slice:0:8"
-        [character]="character"
-      ></character-card>
+    @for (character of characters | slice:0:8; track character.id) {
+      <character-card [character]="character"></character-card>
+    }
     </div>
   }
 

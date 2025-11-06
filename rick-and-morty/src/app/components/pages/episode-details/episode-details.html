@@ -1,0 +1,43 @@
+<div class="episode-details-bg">
+  @if (loading) {
+    <div class="loading-container">
+      <p class="loading-text">Loading episode details...</p>
+    </div>
+  }
+
+  @if (!loading && episode) {
+    <div class="episode-details-container">
+      <button class="back-button" (click)="goBack()">
+        ← Back to Episodes
+      </button>
+
+      <div class="episode-details-card">
+        <div class="episode-header">
+          <div class="episode-title-section">
+            <span class="episode-code">{{ episode.episode }}</span>
+            <h1 class="episode-title">{{ episode.name }}</h1>
+            <p class="air-date">Aired: {{ episode.air_date }}</p>
+          </div>
+        </div>
+
+        @if (characters && characters.length > 0) {
+          <div class="characters-section">
+            <h2 class="section-title">Characters ({{ characters.length }})</h2>
+            <div class="characters-grid">
+              @for (character of characters; track character.id) {
+                <character-card [character]="character"></character-card>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  @if (!loading && !episode) {
+    <div class="error-container">
+      <p class="error-text">Episode not found</p>
+      <button class="back-button" (click)="goBack()">← Back to Episodes</button>
+    </div>
+  }
+</div>

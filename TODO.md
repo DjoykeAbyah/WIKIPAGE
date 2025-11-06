@@ -10,3 +10,11 @@
 
 search component, observable, map pipe, rxjs, filter
 add homepage logic
+
+
+Characters details
+Locations with characters in these locations /residents
+Episodes characters appeared in
+Episodes page with a list of all the characters it appears in
+
+Use @if and @for

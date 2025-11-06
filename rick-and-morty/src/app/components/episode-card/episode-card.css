@@ -1,0 +1,63 @@
+.episode-card {
+  border: 2px solid #26abad;
+  padding: 16px;
+  background: rgba(34, 34, 34, 0.8);
+  border-radius: 16px;
+  box-shadow: 2px 2px 0px #7af458;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'VT323', monospace;
+  color: #fff;
+}
+
+.episode-card:hover {
+  background: rgba(79, 79, 79, 0.8);
+  box-shadow: -2px -2px 0px #fff67e;
+  transform: translateY(-2px);
+}
+
+.episode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.episode-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+  flex: 1;
+}
+
+.episode-code {
+  background: #26abad;
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.episode-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.episode-info p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.label {
+  color: #7af458;
+  font-weight: bold;
+}
+
+.air-date,
+.character-count {
+  color: #fff;
+}

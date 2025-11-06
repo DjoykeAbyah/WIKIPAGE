@@ -1,24 +1,93 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from '../../models/character.model';
+import { Episode } from '../../models/episode.model';
+import { CharacterService } from '../../services/characterService';
+import { EpisodeService } from '../../services/episodeService';
+import { HttpClient } from '@angular/common/http';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-character-details',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './character-details.html',
   styleUrl: './character-details.css',
 })
-export class CharacterDetailsComponent {
+export class CharacterDetailsComponent implements OnInit {
+  character: Character | null = null;
+  episodes: Episode[] = [];
+  loading: boolean = true;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private httpClient: HttpClient,
+    private episodeService: EpisodeService
+  ) {}
 
-  goBack() {
-    this.router.navigate(['/characters']);
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.loadCharacter(parseInt(id));
+    }
   }
 
-  // goToDetails(character: Character) {
-  //   this.router.navigate(['/characters', character.id]);
-  //   console.log('Navigating to details of character:', character);
-  // }
+  loadCharacter(id: number) {
+    this.httpClient.get<Character>(`https://rickandmortyapi.com/api/character/${id}`).subscribe({
+      next: (character) => {
+        this.character = character;
+        this.loadEpisodes();
+      },
+      error: () => {
+        this.loading = false;
+      }
+    });
+  }
 
+  loadEpisodes() {
+    if (this.character && this.character.episode.length > 0) {
+      const episodeIds = this.character.episode.map(url => {
+        const parts = url.split('/');
+        return parseInt(parts[parts.length - 1]);
+      });
+      
+      this.episodeService.getMultipleEpisodes(episodeIds).subscribe(episodes => {
+        this.episodes = Array.isArray(episodes) ? episodes : [episodes];
+        this.loading = false;
+      });
+    } else {
+      this.loading = false;
+    }
+  }
+
+  goBack() {
+    this.router.navigate(['/home']);
+  }
+
+  goToEpisode(episode: Episode) {
+    this.router.navigate(['/episode', episode.id]);
+  }
+
+  goToLocation() {
+    if (this.character && this.character.location.url) {
+      const parts = this.character.location.url.split('/');
+      const locationId = parts[parts.length - 1];
+      this.router.navigate(['/location', locationId]);
+    }
+  }
+
+  goToOrigin() {
+    if (this.character && this.character.origin.url) {
+      const parts = this.character.origin.url.split('/');
+      const locationId = parts[parts.length - 1];
+      this.router.navigate(['/location', locationId]);
+    }
+  }
+
+  getStatusClass(): string {
+    if (!this.character) return '';
+    return this.character.status.toLowerCase();
+  }
 }

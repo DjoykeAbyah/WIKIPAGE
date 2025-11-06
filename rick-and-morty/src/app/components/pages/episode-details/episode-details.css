@@ -1,0 +1,121 @@
+.episode-details-bg {
+  min-height: 100vh;
+  width: 100%;
+  padding: 24px;
+  background-image: url('/images/lab.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.episode-details-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.back-button {
+  border: 2px solid #26abad;
+  padding: 8px 20px;
+  color: #fff;
+  background: rgba(34, 34, 34, 0.9);
+  font-family: 'VT323', monospace;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #7af458;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  transition: all 0.1s;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.back-button:hover {
+  background: rgba(79, 79, 79, 0.9);
+  box-shadow: -2px -2px 0px #fff67e;
+}
+
+.episode-details-card {
+  background: rgba(34, 34, 34, 0.95);
+  border: 2px solid #26abad;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 4px 4px 0px #7af458;
+  font-family: 'VT323', monospace;
+}
+
+.episode-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.episode-code {
+  display: inline-block;
+  background: #26abad;
+  color: #000;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.episode-title {
+  font-size: 3rem;
+  color: #7af458;
+  margin: 16px 0;
+  text-transform: uppercase;
+}
+
+.air-date {
+  font-size: 1.3rem;
+  color: #fff;
+  margin: 0;
+}
+
+.characters-section {
+  border-top: 2px solid #26abad;
+  padding-top: 24px;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #7af458;
+  margin: 0 0 24px 0;
+  text-transform: uppercase;
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .characters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .characters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.loading-container,
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  gap: 24px;
+}
+
+.loading-text,
+.error-text {
+  font-family: 'VT323', monospace;
+  font-size: 2rem;
+  color: #7af458;
+  text-align: center;
+}

@@ -1,0 +1,22 @@
+<main class="container mx-auto min-h-screen pt-8">
+  <div class="episodes-header">
+    <h1 class="page-title">Episodes</h1>
+    <p class="page-subtitle">Explore all episodes from the Rick and Morty multiverse</p>
+  </div>
+
+  @if (episodes && episodes.length > 0) {
+    <div class="episodes-grid">
+      @for (episode of episodes; track episode.id) {
+        <episode-card [episode]="episode"></episode-card>
+      }
+    </div>
+  }
+
+  <pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (previousPage)="goToPreviousPage()"
+    (nextPage)="goToNextPage()"
+    class="mt-12"
+  ></pagination>
+</main>

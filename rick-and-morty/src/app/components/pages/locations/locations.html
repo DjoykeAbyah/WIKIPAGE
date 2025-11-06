@@ -1,0 +1,22 @@
+<main class="container mx-auto min-h-screen pt-8">
+  <div class="locations-header">
+    <h1 class="page-title">Locations</h1>
+    <p class="page-subtitle">Discover worlds across the multiverse</p>
+  </div>
+
+  @if (locations && locations.length > 0) {
+    <div class="locations-grid">
+      @for (location of locations; track location.id) {
+        <location-card [location]="location"></location-card>
+      }
+    </div>
+  }
+
+  <pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (previousPage)="goToPreviousPage()"
+    (nextPage)="goToNextPage()"
+    class="mt-12"
+  ></pagination>
+</main>
