@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
   standalone: true,
   templateUrl: './character-card.html',
   styleUrl: './character-card.css',
-  encapsulation: ViewEncapsulation.None // <-- Add this line
+  encapsulation: ViewEncapsulation.None
 })
 export class CharacterCardComponent {
 
-  @Input() character!: Character; // This can receive ANY Character object
+  @Input() character!: Character;
   constructor(private router: Router) {}
 
   get statusClass(): string {

@@ -3,10 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Character } from '../../../models/character.model';
 import { CharacterService } from '../../../services/characterService';
 
-/**
- * TODO Display a list of character cards
- * Handle loading states and errors
- */
 @Component({
   selector: 'app-list',
   imports: [CommonModule],

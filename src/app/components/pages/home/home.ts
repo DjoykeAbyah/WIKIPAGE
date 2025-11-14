@@ -1,77 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CharacterFilterComponent } from '../../character-filter/character-filter';
-import { CharacterCardComponent } from '../../character-card/character-card';
-import { Character } from '../../../models/character.model';
-import { CharacterService } from '../../../services/characterService';
-import { PaginationComponent } from '../../pagination/pagination';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CharacterFilterComponent, CharacterCardComponent, CommonModule, PaginationComponent],
+  imports: [CommonModule],
   standalone: true,
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
 export class Home implements OnInit {
-  characters: Character[] = [];
-  currentPage: number = 1;
-  totalPages: number = 0;
-  filters: { name: string; gender: string; species: string; status: string; type: string } = {
-    name: '',
-    gender: '',
-    species: '',
-    status: '',
-    type: ''
-  };
+  fullText = 'In a quiet suburb, young Morty leads an ordinary life ..... until his eccentric, genius grandfather Rick Sanchez bursts back into his world.\n' + 
+            'Armed with wild inventions and a portal gun, Rick whisks Morty away on mind-bending adventures across the cosmos.\n' + 
+            'Together, they face outrageous aliens, parallel realities, and the consequences of Rick\'s reckless genius—all while trying to make it home in time for dinner.';
+  typedText = '';
+  private currentIndex = 0;
 
-  get visibleCharacters(): Character[] {
-    return this.characters.slice(0, 12);
-  }
-
-  constructor(private characterService: CharacterService) {};
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    this.characterService.getCharacters().subscribe(response => {
-      this.characters = response.results;
-      this.totalPages = response.info.pages;
-    });
+    this.typeText();
   }
 
-  onFilterChange(filter: { name: string; gender: string; species: string; status: string; type?: string }) {
-    this.filters = { ...filter, type: filter.type ?? '' };
-    this.characterService.getCharacters(this.currentPage, this.filters).subscribe(response => {
-      this.characters = response.results;
-      this.totalPages = response.info.pages;
-    });
+  get typedTextWithBreaks(): string {
+    return this.typedText.replace(/\n/g, '<br>');
   }
 
-  goToPage(page: number) {
-    if (page >= 1 && page <= this.totalPages) {
-      this.currentPage = page;
-      this.characterService.getCharacters(this.currentPage, this.filters).subscribe(response => {
-        this.characters = response.results;
-        this.totalPages = response.info.pages;
-      });
+  typeText() {
+    if (this.currentIndex < this.fullText.length) {
+      this.typedText += this.fullText[this.currentIndex];
+      this.currentIndex++;
+      setTimeout(() => this.typeText(), 90);
     }
   }
 
-  goToNextPage() {
-    if (this.currentPage < this.totalPages) {
-      this.goToPage(this.currentPage + 1);
-    }
+  goToCharacters() {
+    this.router.navigate(['/characters']);
   }
 
-  goToPreviousPage() {
-    if (this.currentPage > 1) {
-      this.goToPage(this.currentPage - 1);
-    }
+  goToEpisodes() {
+    this.router.navigate(['/episodes']);
   }
 
-  scrollToCharacters() {
-    const el = document.getElementById('character-cards');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  goToLocations() {
+    this.router.navigate(['/locations']);
   }
 }

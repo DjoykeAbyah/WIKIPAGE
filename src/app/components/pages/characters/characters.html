@@ -1,0 +1,22 @@
+<main class="container mx-auto min-h-screen pt-8">
+  <character-filter id="filter-bar" (filterChange)="onFilterChange($event)"></character-filter>
+
+  @if (characters) {
+    <div
+      id="character-cards"
+      class="flex flex-wrap gap-6 mt-12"
+    >
+    @for (character of characters; track character.id) {
+      <character-card class="flex-none w-[calc(20%-1.2rem)]" [character]="character"></character-card>
+    }
+    </div>
+  }
+
+  <pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (previousPage)="goToPreviousPage()"
+    (nextPage)="goToNextPage()"
+    class="mt-12"
+  ></pagination>
+</main>

@@ -53,13 +53,13 @@ body {
   display: block;
 }
 
-.find-characters-btn-wrapper {
+.find-btn-wrapper {
   display: flex;
   justify-content: center;
   margin-bottom: 24px;
 }
 
-.find-characters-btn {
+.find-btn {
   border: 2px solid #26abad;
   padding: 8px 20px;
   color: #fff;
@@ -74,7 +74,7 @@ body {
   margin: 0 20px;
 }
 
-.find-characters-btn:hover {
+.find-btn:hover {
   background: rgba(79, 79, 79, 0.8);
   color: #ffffff;
   box-shadow: -2px -2px 0px #fff67e;                                                                                                                                                        

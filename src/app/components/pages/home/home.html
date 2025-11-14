@@ -1,22 +1,25 @@
-<main class="container mx-auto min-h-screen pt-8">
-  <character-filter id="filter-bar" (filterChange)="onFilterChange($event)"></character-filter>
-
-  @if (characters) {
-    <div
-      id="character-cards"
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-2 gap-6 mt-12"
-    >
-    @for (character of characters | slice:0:8; track character.id) {
-      <character-card [character]="character"></character-card>
-    }
+<main class="container mx-auto mt-25 mb-50">
+    <div class="typed-block">
+      <h2 class="h2" [innerHTML]="typedTextWithBreaks"></h2>
     </div>
-  }
-
-  <pagination
-    [currentPage]="currentPage"
-    [totalPages]="totalPages"
-    (previousPage)="goToPreviousPage()"
-    (nextPage)="goToNextPage()"
-    class="mt-12"
-  ></pagination>
-</main>
+    <div class="find-btn-wrapper">
+      <button
+        class="find-btn"
+        (click)="goToCharacters()"
+      >
+        Find Characters
+      </button>
+      <button
+        class="find-btn"
+        (click)="goToEpisodes()"
+      >
+        Find Episodes
+      </button>
+      <button
+        class="find-btn"
+        (click)="goToLocations()"
+      >
+        Find Locations
+      </button>
+    </div>
+  </main>
