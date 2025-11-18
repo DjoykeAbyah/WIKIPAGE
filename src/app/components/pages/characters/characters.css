@@ -1,0 +1,13 @@
+
+#character-cards {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 1.5rem;
+}
+
+character-card, .character-card {
+	max-width: 100%;
+	min-width: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
