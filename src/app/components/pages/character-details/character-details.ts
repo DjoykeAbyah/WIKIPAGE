@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Character } from '../../models/character.model';
-import { Episode } from '../../models/episode.model';
-import { CharacterService } from '../../services/characterService';
-import { EpisodeService } from '../../services/episodeService';
+import { Character } from '../../../models/character.model';
+import { Episode } from '../../../models/episode.model';
+import { CharacterService } from '../../../services/characterService';
+import { EpisodeService } from '../../../services/episodeService';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
 
@@ -48,12 +48,12 @@ export class CharacterDetailsComponent implements OnInit {
 
   loadEpisodes() {
     if (this.character && this.character.episode.length > 0) {
-      const episodeIds = this.character.episode.map(url => {
+      const episodeIds = this.character.episode.map((url: string) => {
         const parts = url.split('/');
         return parseInt(parts[parts.length - 1]);
       });
       
-      this.episodeService.getMultipleEpisodes(episodeIds).subscribe(episodes => {
+      this.episodeService.getMultipleEpisodes(episodeIds).subscribe((episodes: Episode | Episode[]) => {
         this.episodes = Array.isArray(episodes) ? episodes : [episodes];
         this.loading = false;
       });

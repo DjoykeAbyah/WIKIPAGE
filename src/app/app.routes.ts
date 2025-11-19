@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { List } from './components/pages/list/list';
 import { Home } from './components/pages/home/home';
 import { CharactersPage } from './components/pages/characters/characters';
-import { CharacterDetailsComponent } from './components/character-details/character-details';
+import { CharacterDetailsComponent } from './components/pages/character-details/character-details';
 import { EpisodesPage } from './components/pages/episodes/episodes';
 import { LocationsPage } from './components/pages/locations/locations';
 import { EpisodeDetailsComponent } from './components/pages/episode-details/episode-details';
