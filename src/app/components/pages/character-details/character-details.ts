@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoBackButtonComponent } from '../../go-back-button';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from '../../../models/character.model';
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-character-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, GoBackButtonComponent],
   templateUrl: './character-details.html',
   styleUrl: './character-details.css',
 })
@@ -66,7 +67,7 @@ export class CharacterDetailsComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/characters']);
   }
 
   goToEpisode(episode: Episode) {

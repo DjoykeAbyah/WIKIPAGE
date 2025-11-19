@@ -1,5 +1,8 @@
 <main class="container mx-auto min-h-screen pt-8 px-4">
+    <go-back-button [label]="'← Back to Home'" (goBack)="goBack()"></go-back-button>
   <character-filter id="filter-bar" (filterChange)="onFilterChange($event)"></character-filter>
+
+
 
   @if (characters) {
     <div

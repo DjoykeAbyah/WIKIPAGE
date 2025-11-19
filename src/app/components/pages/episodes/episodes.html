@@ -4,6 +4,8 @@
     <p class="page-subtitle">Explore all episodes from the Rick and Morty multiverse</p>
   </div>
 
+  <go-back-button [label]="'← Back to Home'" (goBack)="goBack()"></go-back-button>
+
   @if (episodes && episodes.length > 0) {
     <div class="episodes-grid">
       @for (episode of episodes; track episode.id) {

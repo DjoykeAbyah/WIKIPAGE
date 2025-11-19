@@ -40,17 +40,17 @@
     </script>
 <body class="bg-background-light dark:bg-background-dark font-body text-text-light dark:text-text-dark transition-colors duration-300">
     <div id="app">
-<header class="absolute top-0 left-0 w-full z-50 pt-8">
-<div class="container mx-auto px-4">
+<header class="w-full z-50 pt-4 pb-2" style="background: transparent; pointer-events: none;">
+<div class="container mx-auto px-4" style="pointer-events: auto;">
 <img 
-  src="/images/logo.png" 
-  alt="Rick and Morty Logo" 
-  style="width: 600px; max-width: 90vw; display: block; margin: 0 auto;"
+    src="/images/logo.png" 
+    alt="Rick and Morty Logo" 
+    style="width: 600px; max-width: 90vw; display: block; margin: 0 auto;"
 >
 </div>
 </header>
-<div class="absolute top-1/4 left-0 w-full z-40">
+<div style="width: 100%;">
 <body>
-  <app-root></app-root>
+    <app-root></app-root>
 </body>
 </html>

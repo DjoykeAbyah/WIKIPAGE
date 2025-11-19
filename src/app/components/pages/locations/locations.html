@@ -4,6 +4,8 @@
     <p class="page-subtitle">Discover worlds across the multiverse</p>
   </div>
 
+  <go-back-button [label]="'← Back to Home'" (goBack)="goBack()"></go-back-button>
+
   @if (locations && locations.length > 0) {
     <div class="locations-grid">
       @for (location of locations; track location.id) {

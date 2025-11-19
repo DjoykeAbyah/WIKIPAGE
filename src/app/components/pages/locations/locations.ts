@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { LocationCardComponent } from '../../location-card/location-card';
+import { GoBackButtonComponent } from '../../go-back-button';
 import { Location } from '../../../models/location.model';
 import { LocationService } from '../../../services/locationService';
 import { PaginationComponent } from '../../pagination/pagination';
@@ -8,7 +10,7 @@ import { PaginationComponent } from '../../pagination/pagination';
 @Component({
   selector: 'app-locations',
   standalone: true,
-  imports: [CommonModule, LocationCardComponent, PaginationComponent],
+  imports: [CommonModule, LocationCardComponent, PaginationComponent, GoBackButtonComponent],
   templateUrl: './locations.html',
   styleUrl: './locations.css'
 })
@@ -17,7 +19,9 @@ export class LocationsPage implements OnInit {
   currentPage: number = 1;
   totalPages: number = 0;
 
-  constructor(private locationService: LocationService) {}
+  constructor(
+    private locationService: LocationService,
+    private router: Router) {};
 
   ngOnInit() {
     this.loadLocations();
@@ -49,5 +53,9 @@ export class LocationsPage implements OnInit {
     if (this.currentPage > 1) {
       this.goToPage(this.currentPage - 1);
     }
+  }
+
+    goBack() {
+    this.router.navigate(['/home']);
   }
 }

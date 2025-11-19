@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { CharacterFilterComponent } from '../../character-filter/character-filter';
 import { CharacterCardComponent } from '../../character-card/character-card';
+import { GoBackButtonComponent } from '../../go-back-button';
 import { Character } from '../../../models/character.model';
 import { CharacterService } from '../../../services/characterService';
 import { PaginationComponent } from '../../pagination/pagination';
 
 @Component({
   selector: 'app-characters',
-  imports: [CharacterFilterComponent, CharacterCardComponent, CommonModule, PaginationComponent],
+  imports: [CharacterFilterComponent, CharacterCardComponent, CommonModule, PaginationComponent, GoBackButtonComponent],
   standalone: true,
   templateUrl: './characters.html',
   styleUrl: './characters.css'
@@ -25,7 +27,9 @@ export class CharactersPage implements OnInit {
     type: ''
   };
 
-  constructor(private characterService: CharacterService) {};
+  constructor(
+    private characterService: CharacterService,
+    private router: Router) {};
 
   ngOnInit() {
     this.loadCharacters();
@@ -61,5 +65,9 @@ export class CharactersPage implements OnInit {
     if (this.currentPage > 1) {
       this.goToPage(this.currentPage - 1);
     }
+  }
+
+  goBack() {
+    this.router.navigate(['/home']);
   }
 }

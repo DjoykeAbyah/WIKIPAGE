@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { EpisodeCardComponent } from '../../episode-card/episode-card';
+import { GoBackButtonComponent } from '../../go-back-button';
 import { Episode } from '../../../models/episode.model';
 import { EpisodeService } from '../../../services/episodeService';
 import { PaginationComponent } from '../../pagination/pagination';
@@ -8,7 +10,7 @@ import { PaginationComponent } from '../../pagination/pagination';
 @Component({
   selector: 'app-episodes',
   standalone: true,
-  imports: [CommonModule, EpisodeCardComponent, PaginationComponent],
+  imports: [CommonModule, EpisodeCardComponent, PaginationComponent, GoBackButtonComponent],
   templateUrl: './episodes.html',
   styleUrl: './episodes.css'
 })
@@ -17,7 +19,9 @@ export class EpisodesPage implements OnInit {
   currentPage: number = 1;
   totalPages: number = 0;
 
-  constructor(private episodeService: EpisodeService) {}
+  constructor(
+    private episodeService: EpisodeService,
+    private router: Router) {};
 
   ngOnInit() {
     this.loadEpisodes();
@@ -49,5 +53,9 @@ export class EpisodesPage implements OnInit {
     if (this.currentPage > 1) {
       this.goToPage(this.currentPage - 1);
     }
+  }
+
+  goBack() {
+    this.router.navigate(['/home']);
   }
 }

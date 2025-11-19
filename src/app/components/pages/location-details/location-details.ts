@@ -5,13 +5,14 @@ import { Location } from '../../../models/location.model';
 import { Character } from '../../../models/character.model';
 import { LocationService } from '../../../services/locationService';
 import { CharacterCardComponent } from '../../character-card/character-card';
+import { GoBackButtonComponent } from '../../go-back-button';
 import { forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-location-details',
   standalone: true,
-  imports: [CommonModule, CharacterCardComponent],
+  imports: [CommonModule, CharacterCardComponent, GoBackButtonComponent],
   templateUrl: './location-details.html',
   styleUrl: './location-details.css'
 })

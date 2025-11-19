@@ -4,13 +4,12 @@
       <p class="loading-text">Loading character details...</p>
     </div>
   }
+    <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 24px;">
+      <go-back-button [label]="'← Back to Characters'" (goBack)="goBack()"></go-back-button>
+    </div>
 
   @if (!loading && character) {
     <div class="character-details-container">
-      <button class="back-button" (click)="goBack()">
-        ← Back to Characters
-      </button>
-
       <div class="character-details-card">
         <div class="character-main-info">
           <img [src]="character.image" [alt]="character.name" class="character-image" />
@@ -81,7 +80,7 @@
   @if (!loading && !character) {
     <div class="error-container">
       <p class="error-text">Character not found</p>
-      <button class="back-button" (click)="goBack()">← Back to Characters</button>
+      <go-back-button [label]="'← Back to Characters'" (goBack)="goBack()"></go-back-button>
     </div>
   }
 </div>

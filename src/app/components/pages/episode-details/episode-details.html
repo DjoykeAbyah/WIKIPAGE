@@ -7,9 +7,7 @@
 
   @if (!loading && episode) {
     <div class="episode-details-container">
-      <button class="back-button" (click)="goBack()">
-        ← Back to Episodes
-      </button>
+      <go-back-button [label]="'← Back to Episodes'" (goBack)="goBack()"></go-back-button>
 
       <div class="episode-details-card">
         <div class="episode-header">
@@ -37,7 +35,7 @@
   @if (!loading && !episode) {
     <div class="error-container">
       <p class="error-text">Episode not found</p>
-      <button class="back-button" (click)="goBack()">← Back to Episodes</button>
+      <go-back-button [label]="'← Back to Episodes'" (goBack)="goBack()"></go-back-button>
     </div>
   }
 </div>

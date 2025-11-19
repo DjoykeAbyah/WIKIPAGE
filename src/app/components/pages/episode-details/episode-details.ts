@@ -6,13 +6,14 @@ import { Character } from '../../../models/character.model';
 import { EpisodeService } from '../../../services/episodeService';
 import { CharacterService } from '../../../services/characterService';
 import { CharacterCardComponent } from '../../character-card/character-card';
+import { GoBackButtonComponent } from '../../go-back-button';
 import { forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-episode-details',
   standalone: true,
-  imports: [CommonModule, CharacterCardComponent],
+  imports: [CommonModule, CharacterCardComponent, GoBackButtonComponent],
   templateUrl: './episode-details.html',
   styleUrl: './episode-details.css'
 })
