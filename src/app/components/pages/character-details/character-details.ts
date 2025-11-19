@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from '../../../models/character.model';
 import { Episode } from '../../../models/episode.model';
-import { CharacterService } from '../../../services/characterService';
 import { EpisodeService } from '../../../services/episodeService';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-character-details',
