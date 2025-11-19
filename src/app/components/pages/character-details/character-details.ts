@@ -28,10 +28,15 @@ export class CharacterDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.loadCharacter(parseInt(id));
-    }
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.loading = true;
+        this.character = null;
+        this.episodes = [];
+        this.loadCharacter(parseInt(id));
+      }
+    });
   }
 
   loadCharacter(id: number) {
